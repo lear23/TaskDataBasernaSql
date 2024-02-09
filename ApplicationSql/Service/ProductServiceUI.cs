@@ -66,47 +66,48 @@ namespace ApplicationSql.Service
                 string readerName = client.Reader?.ReaderName ?? "Unknown";
                 string streetName = client.Direction?.StreetName ?? "Unknown";
                 string postalCode = client.Direction?.PostalCode ?? "Unknown";
+                string city = client.Direction?.City ?? "Unknown";
 
-                Console.WriteLine($"{firstName} - {lastName} - {readerName} - {streetName} - {postalCode}");
+                Console.WriteLine($"{firstName} - {lastName} - {readerName} - {streetName} - {postalCode} - {city}");
             }
 
             Console.ReadKey();
 
         }
 
-        //        public void UpdatePlayer()
-        //        {
-        //            Console.Clear();
-        //            Console.Write("Enter Id: ");
-        //            var id = int.Parse(Console.ReadLine()!);
-        //            var client = _clientService.GetClientById(id);
+        public void UpdateBayer()
+        {
+            Console.Clear();
+            Console.Write("Enter Id: ");
+            var id = int.Parse(Console.ReadLine()!);
+            var client = _clientService.GetClientById(id);
 
-        //            if (client != null)
-        //            {
-        //                Console.WriteLine($"{client.FirstName} - {client.LastName} - {client.Address.StreetName} - {client.Address.PostalCode} - {client.Address.City} - {client.Contact.Email} - {client.Contact.PhoneNumber}");
-        //                Console.WriteLine();
+            if (client != null)
+            {
+                Console.WriteLine($"{client.FirstName} - {client.LastName} - {client.Reader.ReaderName} - {client.Direction.StreetName} - {client.Direction.PostalCode} - {client.Direction.City}");
+                Console.WriteLine();
 
-        //                Console.Write("New Player Name: ");
-        //                client.FirstName = Console.ReadLine()!;
+                Console.Write("New Player Name: ");
+                client.FirstName = Console.ReadLine()!;
 
-        //                var newPlayer = _clientService.UpdateClient(client);
-        //                Console.WriteLine($"{client.FirstName} - {client.LastName} - {client.Address.StreetName} - {client.Address.PostalCode} - {client.Address.City} - {client.Contact.Email} - {client.Contact.PhoneNumber}");
-
-
-        //            }
-        //            else 
-        //            {
-
-        //                Console.WriteLine("No Player Found");
-
-        //            }
-        //            Console.ReadKey();
-        //        }
+                var newPlayer = _clientService.UpdateClient(client);
+                Console.WriteLine($"{client.FirstName} - {client.LastName} - {client.Reader.ReaderName} - {client.Direction.StreetName} - {client.Direction.PostalCode} - {client.Direction.City}");
 
 
+            }
+            else
+            {
+
+                Console.WriteLine("No Player Found");
+
+            }
+            Console.ReadKey();
+        }
 
 
-        //  
+
+
+
 
 
 

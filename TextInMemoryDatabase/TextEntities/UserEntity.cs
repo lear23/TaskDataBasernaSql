@@ -1,9 +1,8 @@
 ﻿
 
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TaskDataBaseSql.Entities;
+namespace TextInMemoryDatabase.TextEntities;
 
 public class UserEntity
 {
@@ -13,10 +12,8 @@ public class UserEntity
     public string PlayerName { get; set; } = null!;
 
     public string Status { get; set; } = null!;
-   
+
     public int RoleId { get; set; } 
 
     public RoleEntity Role { get; set; } = null!;
-
-
 }
